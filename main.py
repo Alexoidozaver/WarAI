@@ -2,20 +2,16 @@ import pygame
 import sys
 import json
 
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-BLUE = (0, 0, 255)
-GREEN = (0, 255, 0)
-RED = (255, 0, 0)
-WALLS = (255, 245, 204)
-BROWN = (102, 68, 0)
-YELLOW = (234, 237, 52)
-
 from pygame.locals import *
+
+with open('static_data.json') as f:
+    static_data = json.load(f)
+colors = static_data["colors"]
 pygame.init()
 screen = pygame.display.set_mode((1000, 1000))
 pygame.display.set_caption('Hello World!')
-pygame.draw.rect(screen, WHITE,)
+pygame.draw.rect(screen, colors["GREEN"], [100, 150, 200, 250])
+pygame.display.update()
 while True:  # main game loop
     for event in pygame.event.get():
 
